@@ -1,0 +1,17 @@
+transformers
+torch
+tqdm
+accelerate
+sentencepiece
+bitsandbytes
+plotly
+requests
+beautifulsoup4
+lxml
+aiohttp
+async-timeout
+nest_asyncio
+pandas
+numpy
+huggingface_hub
+pytest
