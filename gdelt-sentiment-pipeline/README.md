@@ -1,8 +1,8 @@
-# GDELT News Sentiment Scoring Pipeline
+# News Sentiment Scoring Pipeline
 
 An end-to-end pipeline that takes raw GDELT news-event data, filters it down
 to headlines that plausibly move Bitcoin price/risk sentiment, scores each
-one with a locally-hosted quantized Llama-3-8B-Instruct model, and produces
+one with a locally-hosted quantized Llama-3-8B-Instruct model with a added FIN-GPT Layer, and produces
 a decay-weighted continuous sentiment index — plus an interactive HTML
 explorer and an optional BTC price-vs-sentiment chart.
 
