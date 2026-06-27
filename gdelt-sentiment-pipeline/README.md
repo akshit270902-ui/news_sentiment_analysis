@@ -100,27 +100,3 @@ GPU and `bitsandbytes` 4-bit quantization support, and expects
 `huggingface_hub` to already be authenticated with access to
 `meta-llama/Meta-Llama-3-8B-Instruct`.
 
-## Testing
-
-```bash
-pytest tests/ -v
-```
-
-All 59 tests cover pure-logic modules (classification, scoring/parsing,
-overrides, novelty multipliers, dedup, temporal decay) and run without a GPU
-or any model weights — `model_loader.py` and `inference.py` are exercised
-only through the import graph, not unit tests, since they require torch and
-an actual model.
-
-## Notes on the refactor
-
-- All diagnostic `print()` statements from the original notebook (shape
-  dumps, intermediate score distributions, per-row override logs, raw model
-  decode previews, etc.) were removed. Only the handful of genuinely useful
-  user-facing completion messages remain (final output paths).
-- One line from the original notebook truncated `df` to a quarter of its
-  rows after classification (`df = df.iloc[:cutoff]`) — this looked like
-  leftover debugging/sampling code rather than intentional pipeline logic,
-  so it was **not** carried over into `scripts/run_pipeline.py`. If you
-  want to reproduce that exact subsampling behavior, add it back
-  immediately after the classification step.
